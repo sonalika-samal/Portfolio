@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonalika Samal | Graphic & Web Designer</title>
+    <!-- Modern Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables for Light Theme */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            --accent-hover: linear-gradient(135deg, #2563eb, #7c3aed);
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(0, 0, 0, 0.08);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Particle Canvas */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--accent-gradient);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #7c3aed;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Global Container & Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            position: relative;
+        }
+
+        section {
+            padding-top: 160px;
+            padding-bottom: 60px;
+            opacity: 0; /* For scroll animation */
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 120px;
+            opacity: 1; /* Hero is visible immediately */
+            transform: translateY(0);
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid transparent;
+            background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box, var(--accent-gradient) border-box;
+            margin-bottom: 2rem;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero-name {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-title {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-intro {
+            max-width: 650px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 2.5rem;
+            background: var(--accent-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        /* About Section */
+        #about .about-content {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3.5rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            color: var(--text-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: default;
+            font-weight: 500;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+            color: white;
+        }
+
+        /* Graphic Design Portfolio */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.3));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-category {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+            transform: translateY(10px);
+            transition: transform 0.4s ease;
+            font-weight: 600;
+        }
+
+        .gallery-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            transform: translateY(10px);
+            transition: transform 0.4s ease 0.1s;
+        }
+        
+        .gallery-item:hover .gallery-category,
+        .gallery-item:hover .gallery-title {
+            transform: translateY(0);
+        }
+
+        /* Web Design Portfolio */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .project-img-placeholder {
+            width: 100%;
+            height: 220px;
+            background: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .project-img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img-placeholder img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .project-info p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+
+        .project-info .btn {
+            align-self: flex-start;
+            padding: 0.6rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            padding-bottom: 120px;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            max-width: 750px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        .contact-tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-item:hover {
+            color: #7c3aed;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3b82f6;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .contact-item:hover .contact-icon {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            color: white;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .social-row {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.9);
+            position: relative;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .skills-grid { 
+                grid-template-columns: 1fr; 
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            nav ul { 
+                gap: 1.2rem; 
+                font-size: 0.9rem; 
+            }
+            .hero-name { 
+                font-size: 3rem; 
+            }
+            .hero-title {
+                font-size: 1.2rem;
+            }
+            .section-title { 
+                font-size: 2rem; 
+            }
+            .about-content {
+                padding: 2rem;
+            }
+            .contact-card { 
+                padding: 3rem 1.5rem; 
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav ul {
+                display: none; /* In a real app, you'd implement a hamburger menu here */
+            }
+            .hero-name {
+                font-size: 2.5rem;
+            }
+            .contact-item {
+                font-size: 1rem;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Particle Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#graphic-work">Graphics</a></li>
+            <li><a href="#web-work">Web</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="container visible">
+            <!-- Professional placeholder for profile photo -->
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sonalika Samal" class="profile-img">
+            
+            <h1 class="hero-name">Sonalika Samal</h1>
+            <h2 class="hero-title">Graphic Designer & Web Designer</h2>
+            
+            <p class="hero-intro">
+                Design is more than aesthetics; it's how a problem is solved. I bring a unique thinking approach that blends creativity with a problem-solving mindset. By leveraging AI tools and automation, I enhance my workflow to deliver exceptional, high-impact designs efficiently.
+            </p>
+            
+            <a href="#contact" class="btn">Let's Connect</a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="container">
+            <h2 class="section-title">My Philosophy</h2>
+            <div class="about-content">
+                <p>
+                    I think differently about design. It’s not just about making things look good; it’s about crafting experiences that resonate. My approach sits at the intersection of creativity, logical structure, and user psychology.
+                </p>
+                <p>
+                    I believe in blending beautiful aesthetics with flawless functionality. Whether it's a brand identity or a web interface, every pixel serves a purpose.
+                </p>
+                <p>
+                    In today's fast-paced digital landscape, I integrate AI and automation tools into my process. This smart approach allows me to scale ideas faster, iterate smarter, and focus on the strategic creative thinking that truly sets a project apart.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="container">
+            <h2 class="section-title">Tools & Expertise</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-category">
+                    <h3>Graphic Designing Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Canva</span>
+                        <span class="skill-tag">CorelDRAW</span>
+                        <span class="skill-tag">Adobe Illustrator</span>
+                        <span class="skill-tag">PowerPoint</span>
+                        <span class="skill-tag">Custom GPTs</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Web Designing Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">WordPress</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Claude AI</span>
+                        <span class="skill-tag">Antigravity</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Graphic Design Portfolio -->
+        <section id="graphic-work" class="container">
+            <h2 class="section-title">Graphic Design Work</h2>
+            <div class="gallery-grid">
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1626785773985-924083070494?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brochure Design Placeholder" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Print & Layout</span>
+                        <h3 class="gallery-title">Professional Brochures</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Social Media Placeholder" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Digital Marketing</span>
+                        <h3 class="gallery-title">Social Media Campaigns</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Logo Design Placeholder" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Brand Identity</span>
+                        <h3 class="gallery-title">Logo & Typography</h3>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Web Design Portfolio -->
+        <section id="web-work" class="container">
+            <h2 class="section-title">Web Design Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="project-img-placeholder">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-commerce Website">
+                    </div>
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A responsive, high-converting online store with seamless user navigation and integrated automated workflows.</p>
+                        <a href="#" class="btn" onclick="event.preventDefault();">Visit Website</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-placeholder">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Landing Page">
+                    </div>
+                    <div class="project-info">
+                        <h3>Corporate Landing Page</h3>
+                        <p>A sleek, minimalist landing page designed to capture leads, featuring smart UI elements and smooth animations.</p>
+                        <a href="#" class="btn" onclick="event.preventDefault();">Visit Website</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container">
+            <h2 class="section-title">Let’s Work Together</h2>
+            <div class="contact-card">
+                <p class="contact-tagline">
+                    Have a project in mind or need high-impact designs with smart automation? Let’s connect.
+                </p>
+                
+                <div class="contact-links">
+                    <a href="tel:+917846969508" class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        +91 7846969508
+                    </a>
+                    
+                    <a href="mailto:sonalikasamal@zohomail.in" class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        sonalikasamal@zohomail.in
+                    </a>
+                    
+                    <a href="mailto:sonalika.ctc29@gmail.com" class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope-open"></i></div>
+                        sonalika.ctc29@gmail.com
+                    </a>
+                    
+                    <div class="social-row">
+                        <a href="https://www.linkedin.com/in/sonalikasamal/" target="_blank" rel="noopener noreferrer" class="contact-item" title="LinkedIn">
+                            <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                        </a>
+                        <a href="https://wa.me/917846969508" target="_blank" rel="noopener noreferrer" class="contact-item" title="WhatsApp">
+                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="mailto:sonalikasamal@zohomail.in" class="btn">Hire Me</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sonalika Samal. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Internal JavaScript -->
+    <script>
+        // Smooth Scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations (fade-in & slide-up)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Stop observing once the animation has triggered to improve performance
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Select all sections to animate them on scroll
+        document.querySelectorAll('section').forEach(section => {
+            // Hero section is already visible to prevent pop-in effect on load
+            if (section.id !== 'hero') {
+                observer.observe(section);
+            }
+        });
+
+        // Navbar blur and shrink effect on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.padding = '1rem 5%';
+                navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.05)';
+            } else {
+                navbar.style.padding = '1.5rem 5%';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Particles Animation (Blue & Lavender Tech Particles)
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray = [];
+        
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        setCanvasSize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1; // Small particles
+                this.speedX = Math.random() * 0.8 - 0.4; // Slow drift
+                this.speedY = Math.random() * 0.8 - 0.4;
+                // Randomly assign Blue or Lavender color with transparency
+                this.color = Math.random() > 0.5 ? 'rgba(59, 130, 246, 0.6)' : 'rgba(139, 92, 246, 0.6)';
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                // Wrap around edges seamlessly
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            // Calculate number of particles based on screen area to maintain density
+            let numberOfParticles = Math.floor((canvas.height * canvas.width) / 12000);
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                
+                // Draw connecting lines between close particles
+                for (let j = i; j < particlesArray.length; j++) {
+                    const dx = particlesArray[i].x - particlesArray[j].x;
+                    const dy = particlesArray[i].y - particlesArray[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 120) {
+                        ctx.beginPath();
+                        // Opacity decreases as distance increases
+                        let opacity = 1 - (distance / 120);
+                        // Subtle indigo connection lines
+                        ctx.strokeStyle = `rgba(118, 111, 246, ${opacity * 0.25})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                        ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            setCanvasSize();
+            initParticles();
+        });
+
+        // Start animation
+        initParticles();
+        animateParticles();
+
+    </script>
+</body>
+</html>
