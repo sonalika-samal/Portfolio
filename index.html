@@ -18,8 +18,8 @@
             --bg-secondary: #f8fafc;
             --text-primary: #0f172a;
             --text-secondary: #475569;
-            --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            --accent-hover: linear-gradient(135deg, #2563eb, #7c3aed);
+            --accent-gradient: linear-gradient(135deg, #2C2B60, #2C2B60);
+            --accent-hover: linear-gradient(135deg, #109862, #109862);
             --card-bg: rgba(255, 255, 255, 0.85);
             --glass-border: rgba(0, 0, 0, 0.08);
         }
@@ -44,16 +44,7 @@
             position: relative;
         }
 
-        /* Particle Canvas */
-        #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
+
 
         /* Navigation */
         nav {
@@ -114,8 +105,8 @@
         }
 
         section {
-            padding-top: 160px;
-            padding-bottom: 60px;
+            padding-top: 100px;
+            padding-bottom: 30px;
             opacity: 0; /* For scroll animation */
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
@@ -138,15 +129,31 @@
 
         /* Hero Section */
         #hero {
+            position: relative;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding-top: 120px;
+            padding-top: 100px;
             opacity: 1; /* Hero is visible immediately */
             transform: translateY(0);
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
         }
 
         .profile-img {
@@ -426,7 +433,7 @@
         /* Contact Section */
         #contact {
             text-align: center;
-            padding-bottom: 120px;
+            padding-bottom: 60px;
         }
 
         .contact-card {
@@ -561,8 +568,7 @@
 </head>
 <body>
 
-    <!-- Particle Background -->
-    <canvas id="particles-canvas"></canvas>
+
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -580,16 +586,16 @@
         <!-- Hero Section -->
         <section id="hero" class="container visible">
             <!-- Professional placeholder for profile photo -->
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sonalika Samal" class="profile-img">
+            <img src="https://res.cloudinary.com/drxe29smn/image/upload/f_auto,q_auto/Me_afvs4m" alt="Sonalika Samal" class="profile-img">
             
             <h1 class="hero-name">Sonalika Samal</h1>
-            <h2 class="hero-title">Graphic Designer & Web Designer</h2>
+            <h2 class="hero-title">Creative Graphic Designer <span style="font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);"> & Web Designer</span></h2>
             
             <p class="hero-intro">
-                Design is more than aesthetics; it's how a problem is solved. I bring a unique thinking approach that blends creativity with a problem-solving mindset. By leveraging AI tools and automation, I enhance my workflow to deliver exceptional, high-impact designs efficiently.
+                With over one year of experience in this designing field, I have experienced that design is more than aesthetics; it's how a problem is solved. I bring a unique thinking approach that blends creativity with a problem-solving mindset. By leveraging AI tools and automation, I enhance my workflow to deliver exceptional, high-impact designs efficiently.
             </p>
             
-            <a href="#contact" class="btn">Let's Connect</a>
+            <a href="#graphic-work" class="btn">View Design Portfolio</a>
         </section>
 
         <!-- About Section -->
@@ -644,29 +650,86 @@
             <h2 class="section-title">Graphic Design Work</h2>
             <div class="gallery-grid">
                 
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1626785773985-924083070494?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brochure Design Placeholder" class="gallery-img">
+                <!-- Drive Link 1 -->
+                <a href="https://drive.google.com/file/d/17hv0wJO449MtMqf6usRC443-xq6f4oQ3/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 1" class="gallery-img">
                     <div class="gallery-overlay">
-                        <span class="gallery-category">Print & Layout</span>
-                        <h3 class="gallery-title">Professional Brochures</h3>
+                        <span class="gallery-category">Graphic Design</span>
+                        <h3 class="gallery-title">Design Project 1</h3>
                     </div>
-                </div>
+                </a>
 
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Social Media Placeholder" class="gallery-img">
+                <!-- Drive Link 2 -->
+                <a href="https://drive.google.com/file/d/1aVv_l3HwMeyI1vcecJoZa4vUKj5pm6on/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
+                    <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 2" class="gallery-img">
                     <div class="gallery-overlay">
-                        <span class="gallery-category">Digital Marketing</span>
-                        <h3 class="gallery-title">Social Media Campaigns</h3>
+                        <span class="gallery-category">Graphic Design</span>
+                        <h3 class="gallery-title">Design Project 2</h3>
                     </div>
-                </div>
+                </a>
 
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Logo Design Placeholder" class="gallery-img">
+                <!-- Drive Link 3 -->
+                <a href="https://drive.google.com/file/d/1atBBdX3xzizxQM6wAkfG_kPQ2MNGpoKz/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 3" class="gallery-img">
                     <div class="gallery-overlay">
-                        <span class="gallery-category">Brand Identity</span>
-                        <h3 class="gallery-title">Logo & Typography</h3>
+                        <span class="gallery-category">Graphic Design</span>
+                        <h3 class="gallery-title">Design Project 3</h3>
                     </div>
-                </div>
+                </a>
+
+                <!-- FlipHTML5 1 -->
+                <a href="https://online.fliphtml5.com/xclgw/autb/" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
+                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 4" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Graphic Design</span>
+                        <h3 class="gallery-title">Design Project 4</h3>
+                    </div>
+                </a>
+
+                <!-- FlipHTML5 2 -->
+                <a href="https://online.fliphtml5.com/xclgw/oakj/" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
+                    <img src="https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 5" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Graphic Design</span>
+                        <h3 class="gallery-title">Design Project 5</h3>
+                    </div>
+                </a>
+
+                <!-- Heyzine 1 -->
+                <a href="https://heyzine.com/flip-book/9505958b70.html" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
+                    <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 6" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Graphic Design</span>
+                        <h3 class="gallery-title">Design Project 6</h3>
+                    </div>
+                </a>
+
+                <!-- FlipHTML5 3 -->
+                <a href="https://online.fliphtml5.com/xclgw/qeth/" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 7" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Graphic Design</span>
+                        <h3 class="gallery-title">Design Project 7</h3>
+                    </div>
+                </a>
+
+                <!-- FlipHTML5 4 -->
+                <a href="https://online.fliphtml5.com/tmjot/qwhq/" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 8" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Graphic Design</span>
+                        <h3 class="gallery-title">Design Project 8</h3>
+                    </div>
+                </a>
+
+                <!-- Heyzine 2 -->
+                <a href="https://heyzine.com/flip-book/de1aaba691.html" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 9" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">Graphic Design</span>
+                        <h3 class="gallery-title">Design Project 9</h3>
+                    </div>
+                </a>
 
             </div>
         </section>
@@ -676,25 +739,75 @@
             <h2 class="section-title">Web Design Projects</h2>
             <div class="projects-grid">
                 
+                <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-img-placeholder">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-commerce Website">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="DCG Cables & Wires Ltd">
                     </div>
                     <div class="project-info">
-                        <h3>E-Commerce Platform</h3>
-                        <p>A responsive, high-converting online store with seamless user navigation and integrated automated workflows.</p>
-                        <a href="#" class="btn" onclick="event.preventDefault();">Visit Website</a>
+                        <h3>DCG Cables & Wires Ltd</h3>
+                        <p>A professional corporate website designed to showcase industrial products and manufacturing capabilities.</p>
+                        <a href="https://dcgcableswiresltd.com/" target="_blank" rel="noopener noreferrer" class="btn">Visit Website</a>
                     </div>
                 </div>
 
+                <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-img-placeholder">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Landing Page">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="e-Khanate">
                     </div>
                     <div class="project-info">
-                        <h3>Corporate Landing Page</h3>
-                        <p>A sleek, minimalist landing page designed to capture leads, featuring smart UI elements and smooth animations.</p>
-                        <a href="#" class="btn" onclick="event.preventDefault();">Visit Website</a>
+                        <h3>e-Khanate</h3>
+                        <p>A modern, responsive web platform featuring clean UI components and seamless navigation.</p>
+                        <a href="https://e-khanate.com/" target="_blank" rel="noopener noreferrer" class="btn">Visit Website</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-img-placeholder">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sahay ML">
+                    </div>
+                    <div class="project-info">
+                        <h3>Sahay ML</h3>
+                        <p>A sleek technology-focused website tailored for modern machine learning and tech solutions.</p>
+                        <a href="https://sahayml.com/" target="_blank" rel="noopener noreferrer" class="btn">Visit Website</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-img-placeholder">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="G7 Consultant">
+                    </div>
+                    <div class="project-info">
+                        <h3>G7 Consultant</h3>
+                        <p>A corporate consulting portal designed to present professional services and build client trust.</p>
+                        <a href="http://demo.g7consultant.com" target="_blank" rel="noopener noreferrer" class="btn">Visit Website</a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-img-placeholder">
+                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Apricotas">
+                    </div>
+                    <div class="project-info">
+                        <h3>Apricotas</h3>
+                        <p>A well-structured digital platform featuring intuitive layouts and a clean, responsive web design.</p>
+                        <a href="http://apricotas.com" target="_blank" rel="noopener noreferrer" class="btn">Visit Website</a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-img-placeholder">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Web King Solutions">
+                    </div>
+                    <div class="project-info">
+                        <h3>Web King Solutions</h3>
+                        <p>A digital agency portfolio website designed to showcase services, portfolios, and drive client conversions.</p>
+                        <a href="http://webkingsolutions.com" target="_blank" rel="noopener noreferrer" class="btn">Visit Website</a>
                     </div>
                 </div>
 
@@ -734,8 +847,6 @@
                         </a>
                     </div>
                 </div>
-
-                <a href="mailto:sonalikasamal@zohomail.in" class="btn">Hire Me</a>
             </div>
         </section>
     </main>
@@ -800,92 +911,7 @@
             }
         });
 
-        // Particles Animation (Blue & Lavender Tech Particles)
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-        let particlesArray = [];
-        
-        function setCanvasSize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        setCanvasSize();
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1; // Small particles
-                this.speedX = Math.random() * 0.8 - 0.4; // Slow drift
-                this.speedY = Math.random() * 0.8 - 0.4;
-                // Randomly assign Blue or Lavender color with transparency
-                this.color = Math.random() > 0.5 ? 'rgba(59, 130, 246, 0.6)' : 'rgba(139, 92, 246, 0.6)';
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                
-                // Wrap around edges seamlessly
-                if (this.x < 0) this.x = canvas.width;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.y < 0) this.y = canvas.height;
-                if (this.y > canvas.height) this.y = 0;
-            }
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function initParticles() {
-            particlesArray = [];
-            // Calculate number of particles based on screen area to maintain density
-            let numberOfParticles = Math.floor((canvas.height * canvas.width) / 12000);
-            for (let i = 0; i < numberOfParticles; i++) {
-                particlesArray.push(new Particle());
-            }
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
-                
-                // Draw connecting lines between close particles
-                for (let j = i; j < particlesArray.length; j++) {
-                    const dx = particlesArray[i].x - particlesArray[j].x;
-                    const dy = particlesArray[i].y - particlesArray[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < 120) {
-                        ctx.beginPath();
-                        // Opacity decreases as distance increases
-                        let opacity = 1 - (distance / 120);
-                        // Subtle indigo connection lines
-                        ctx.strokeStyle = `rgba(118, 111, 246, ${opacity * 0.25})`;
-                        ctx.lineWidth = 0.8;
-                        ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-                        ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animateParticles);
-        }
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            setCanvasSize();
-            initParticles();
-        });
-
-        // Start animation
-        initParticles();
-        animateParticles();
 
     </script>
 </body>
