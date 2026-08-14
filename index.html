@@ -44,7 +44,7 @@
         body {
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.5;
             overflow-x: hidden;
             position: relative;
         }
@@ -105,58 +105,39 @@
         }
 
         @keyframes floatBlob {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            50% {
-                transform: translate(8%, 12%) scale(1.08);
-            }
-            100% {
-                transform: translate(-5%, -5%) scale(0.92);
-            }
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(6%, 8%) scale(1.05); }
+            100% { transform: translate(-3%, -3%) scale(0.95); }
         }
 
         @keyframes floatBlobCenter {
-            0% {
-                transform: translate(-50%, -50%) translate(-60px, -60px) scale(0.9);
-            }
-            50% {
-                transform: translate(-50%, -50%) translate(60px, 80px) scale(1.1);
-            }
-            100% {
-                transform: translate(-50%, -50%) translate(-60px, -60px) scale(0.9);
-            }
+            0% { transform: translate(-50%, -50%) translate(-40px, -40px) scale(0.95); }
+            50% { transform: translate(-50%, -50%) translate(40px, 60px) scale(1.05); }
+            100% { transform: translate(-50%, -50%) translate(-40px, -40px) scale(0.95); }
         }
 
         /* Scrollbar styling */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 8px;
         }
         ::-webkit-scrollbar-track {
             background: var(--bg-primary);
         }
         ::-webkit-scrollbar-thumb {
             background: var(--bg-tertiary);
-            border-radius: 5px;
-            border: 2px solid var(--bg-primary);
+            border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
             background: var(--accent-purple);
         }
 
-        /* Selection */
-        ::selection {
-            background: var(--accent-purple);
-            color: white;
-        }
-
-        /* Section Visibility & Scroll Animations */
+        /* Section Visibility & Compact Scroll Animations */
         section {
-            padding-top: 120px;
-            padding-bottom: 60px;
+            padding-top: 70px;
+            padding-bottom: 25px;
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         section.visible {
@@ -175,28 +156,28 @@
         .section-header {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 4rem auto;
+            margin: 0 auto 2rem auto;
         }
 
         .section-tag {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             background: rgba(139, 92, 246, 0.05);
             color: var(--accent-purple);
-            padding: 0.4rem 1rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 50px;
             display: inline-block;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             border: 1px solid rgba(139, 92, 246, 0.15);
         }
 
         .section-title {
-            font-size: 2.75rem;
+            font-size: 2.25rem;
             font-weight: 900;
-            letter-spacing: -0.75px;
-            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -204,7 +185,7 @@
 
         .section-subtitle {
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 400;
         }
 
@@ -213,11 +194,11 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.75rem;
-            padding: 0.85rem 2rem;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: var(--transition);
             text-decoration: none;
             cursor: pointer;
@@ -226,28 +207,26 @@
         .btn-primary {
             background: var(--accent-gradient);
             color: white;
-            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.12);
             border: none;
         }
 
         .btn-primary:hover {
             background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.35);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.25);
         }
 
         .btn-secondary {
             background: rgba(255, 255, 255, 0.6);
             color: var(--text-primary);
             border: 1px solid var(--glass-border);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.95);
-            transform: translateY(-2px);
-            border-color: rgba(139, 92, 246, 0.25);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transform: translateY(-1px);
+            border-color: rgba(139, 92, 246, 0.2);
         }
 
         /* SaaS Navigation Bar */
@@ -256,8 +235,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 1.25rem 5%;
-            background: rgba(255, 255, 255, 0.8);
+            padding: 0.9rem 5%;
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
@@ -270,7 +249,7 @@
 
         .nav-logo {
             font-weight: 900;
-            font-size: 1.45rem;
+            font-size: 1.35rem;
             letter-spacing: -0.5px;
             color: var(--text-primary);
             text-decoration: none;
@@ -288,7 +267,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2.2rem;
+            gap: 2rem;
             align-items: center;
         }
 
@@ -296,7 +275,7 @@
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: var(--transition);
             position: relative;
         }
@@ -310,7 +289,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -6px;
+            bottom: -4px;
             left: 0;
             background: var(--accent-gradient);
             transition: var(--transition);
@@ -320,13 +299,13 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        /* Hero Section (Compact) */
         #hero {
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
-            padding-top: 120px;
-            padding-bottom: 60px;
+            padding-top: 100px;
+            padding-bottom: 30px;
             opacity: 1;
             transform: translateY(0);
         }
@@ -334,7 +313,7 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1.25fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
             width: 100%;
         }
@@ -348,33 +327,27 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.8rem;
+            gap: 0.4rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--accent-purple);
             background: rgba(139, 92, 246, 0.06);
             border: 1px solid rgba(139, 92, 246, 0.15);
-            padding: 0.45rem 1.1rem;
+            padding: 0.35rem 0.9rem;
             border-radius: 50px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .hero-badge i {
             animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
-        }
-
         .hero-name {
-            font-size: 4.25rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            letter-spacing: -1.5px;
+            letter-spacing: -1.2px;
             line-height: 1.1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .hero-name span {
@@ -384,27 +357,27 @@
         }
 
         .hero-title {
-            font-size: 1.85rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             letter-spacing: -0.2px;
         }
 
         .hero-intro {
             color: var(--text-secondary);
-            font-size: 1.15rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 580px;
         }
 
         .hero-ctas {
             display: flex;
-            gap: 1.25rem;
+            gap: 1rem;
         }
 
-        /* Right Side: SaaS Dashboard Mockup (Light Glassmorphic) */
+        /* Right Side: SaaS Dashboard Mockup */
         .hero-right {
             display: flex;
             justify-content: center;
@@ -414,39 +387,29 @@
 
         .dashboard-mockup {
             width: 100%;
-            max-width: 440px;
+            max-width: 400px;
             background: var(--glass-card);
             border: 1px solid rgba(139, 92, 246, 0.15);
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.08), 0 1px 3px rgba(0,0,0,0.02);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.06);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
 
         .dashboard-header {
             background: rgba(139, 92, 246, 0.03);
-            padding: 1.1rem 1.5rem;
+            padding: 0.9rem 1.25rem;
             border-bottom: 1px solid rgba(139, 92, 246, 0.1);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
         }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .dot-red { background: #ef4444; }
-        .dot-yellow { background: #f59e0b; }
-        .dot-green { background: #10b981; }
 
         .dashboard-window-title {
             margin-left: auto;
             margin-right: auto;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--text-secondary);
             font-family: monospace;
@@ -454,18 +417,18 @@
         }
 
         .dashboard-body {
-            padding: 2.5rem 2rem;
+            padding: 2rem 1.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
         .profile-img-container {
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
         }
 
         .profile-img {
@@ -474,15 +437,15 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #ffffff;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
 
         .profile-status {
             position: absolute;
-            bottom: 5px;
-            right: 15px;
-            width: 16px;
-            height: 16px;
+            bottom: 4px;
+            right: 12px;
+            width: 14px;
+            height: 14px;
             background: #10b981;
             border: 3px solid #ffffff;
             border-radius: 50%;
@@ -491,33 +454,31 @@
         .dashboard-stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            gap: 0.85rem;
             width: 100%;
-            margin-top: 0.5rem;
         }
 
         .stat-badge {
             background: #ffffff;
             border: 1px solid rgba(139, 92, 246, 0.1);
-            border-radius: 14px;
-            padding: 0.85rem;
+            border-radius: 12px;
+            padding: 0.75rem;
             display: flex;
             flex-direction: column;
-            gap: 0.3rem;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+            gap: 0.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.01);
         }
 
         .stat-badge .label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.75px;
             color: var(--text-muted);
             font-weight: 700;
         }
 
         .stat-badge .val {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             font-weight: 800;
             color: var(--text-primary);
             font-family: monospace;
@@ -527,12 +488,12 @@
             color: #10b981;
         }
 
-        /* SaaS Metrics Bar Section (Light Mode) */
+        /* SaaS Metrics Bar Section (Light Mode - Compact) */
         .metrics-bar {
             background: rgba(255, 255, 255, 0.7);
             border-top: 1px solid var(--glass-border);
             border-bottom: 1px solid var(--glass-border);
-            padding: 2.5rem 0;
+            padding: 1.75rem 0;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
@@ -540,106 +501,50 @@
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
             text-align: center;
         }
 
-        .metric-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-        }
-
         .metric-val {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 950;
-            letter-spacing: -1px;
+            letter-spacing: -0.75px;
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .metric-label {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             color: var(--text-secondary);
         }
 
-        /* Philosophy & Core Principles Section */
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .philosophy-card {
-            background: var(--glass-card);
-            border: 1px solid rgba(139, 92, 246, 0.1);
-            border-radius: 24px;
-            padding: 3rem 2.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            transition: var(--transition);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.01), 0 1px 3px rgba(0,0,0,0.02);
-        }
-
-        .philosophy-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(139, 92, 246, 0.25);
-            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.05), 0 2px 4px rgba(0,0,0,0.02);
-        }
-
-        .philosophy-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            background: rgba(139, 92, 246, 0.06);
-            border: 1px solid rgba(139, 92, 246, 0.15);
-            color: var(--accent-purple);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-        }
-
-        .philosophy-card h3 {
-            font-size: 1.4rem;
-            font-weight: 850;
-            letter-spacing: -0.3px;
-        }
-
-        .philosophy-card p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        /* Tech Stack Section */
+        /* Tech Stack Section (Compact) */
         .skills-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         .skill-category {
             background: var(--glass-card);
             border: 1px solid rgba(139, 92, 246, 0.1);
-            border-radius: 24px;
-            padding: 3rem 2.5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+            border-radius: 20px;
+            padding: 2.2rem 2rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.01);
         }
 
         .skill-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 2.2rem;
+            font-size: 1.35rem;
+            margin-bottom: 1.5rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.3px;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
         }
 
         .skill-category h3 i {
@@ -649,53 +554,52 @@
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.85rem;
+            gap: 0.7rem;
         }
 
         .skill-tag {
             background: #ffffff;
             border: 1px solid rgba(139, 92, 246, 0.08);
             color: var(--text-secondary);
-            padding: 0.65rem 1.25rem;
-            border-radius: 10px;
-            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
             font-weight: 600;
             transition: var(--transition);
             cursor: default;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.01);
         }
 
         .skill-tag:hover {
             background: var(--accent-gradient);
             border-color: transparent;
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(167, 139, 250, 0.2);
         }
 
-        /* SaaS Tabbed Interactive Projects Showcase */
+        /* Projects Section (Compact Layout) */
         .projects-showcase {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 3rem;
+            gap: 2rem;
         }
 
         .tabs-container {
             display: flex;
             background: rgba(139, 92, 246, 0.04);
             border: 1px solid rgba(139, 92, 246, 0.1);
-            padding: 0.35rem;
+            padding: 0.3rem;
             border-radius: 50px;
-            gap: 0.5rem;
+            gap: 0.35rem;
         }
 
         .tab-btn {
             background: transparent;
             border: none;
             color: var(--text-secondary);
-            padding: 0.75rem 2.2rem;
-            font-size: 0.95rem;
+            padding: 0.65rem 1.8rem;
+            font-size: 0.9rem;
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
@@ -709,62 +613,46 @@
         .tab-btn.active {
             background: var(--accent-gradient);
             color: white;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
-        }
-
-        .projects-grid-container {
-            width: 100%;
-            position: relative;
+            box-shadow: 0 3px 10px rgba(139, 92, 246, 0.15);
         }
 
         .projects-panel {
             display: none;
             width: 100%;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            animation: fadeInUp 0.5s ease forwards;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            animation: fadeInUp 0.4s ease forwards;
         }
 
         .projects-panel.active {
             display: grid;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Project Cards styling */
+        /* Project Cards styling (Compact) */
         .project-card {
             background: var(--glass-card);
             border: 1px solid rgba(139, 92, 246, 0.1);
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
             transition: var(--transition);
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.02);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.01);
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(139, 92, 246, 0.25);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.06);
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.2);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.05);
         }
 
         .project-img-container {
             width: 100%;
-            height: 220px;
+            height: 180px;
             background: var(--bg-tertiary);
             overflow: hidden;
             position: relative;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.06);
         }
 
         .project-img-container img {
@@ -775,41 +663,41 @@
         }
 
         .project-card:hover .project-img-container img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .project-details {
-            padding: 2.2rem 2rem;
+            padding: 1.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            gap: 1.25rem;
+            gap: 1rem;
         }
 
         .project-details h3 {
-            font-size: 1.4rem;
-            font-weight: 850;
-            letter-spacing: -0.3px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.2px;
         }
 
         .project-details p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.5;
             flex-grow: 1;
         }
 
-        /* AI & Automation Cards */
+        /* AI & Automation Cards (Optimized & Compact) */
         .automation-card {
             background: var(--glass-card);
-            border: 1px solid rgba(139, 92, 246, 0.1);
-            border-radius: 24px;
-            padding: 2.5rem;
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            border-radius: 20px;
+            padding: 1.75rem 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.1rem;
             transition: var(--transition);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.02);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.01);
             position: relative;
             overflow: hidden;
         }
@@ -820,14 +708,14 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: var(--accent-gradient);
         }
 
         .automation-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             border-color: rgba(139, 92, 246, 0.25);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.06);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.06);
         }
 
         .auto-card-header {
@@ -837,99 +725,164 @@
         }
 
         .auto-icon-box {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background: rgba(139, 92, 246, 0.05);
             border: 1px solid rgba(139, 92, 246, 0.15);
             color: var(--accent-purple);
-            border-radius: 14px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.15rem;
+        }
+
+        .auto-category-tag {
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-purple);
+            opacity: 0.85;
         }
 
         .auto-metric-tag {
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             color: #10b981;
             background: rgba(16, 185, 129, 0.05);
             border: 1px solid rgba(16, 185, 129, 0.15);
-            padding: 0.35rem 0.8rem;
+            padding: 0.25rem 0.65rem;
             border-radius: 50px;
         }
 
         .auto-card-body {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.5rem;
             flex-grow: 1;
         }
 
         .auto-card-body h3 {
-            font-size: 1.35rem;
+            font-size: 1.15rem;
             font-weight: 800;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.2px;
+            line-height: 1.3;
         }
 
         .auto-card-body p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .auto-features {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            margin: 0.25rem 0;
+            border-top: 1px solid rgba(139, 92, 246, 0.06);
+            padding-top: 0.6rem;
+        }
+
+        .auto-features li {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .auto-features li i {
+            color: var(--accent-purple);
+            font-size: 0.7rem;
+        }
+
+        .auto-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            border-top: 1px solid rgba(139, 92, 246, 0.06);
+            padding-top: 0.75rem;
+        }
+
+        .auto-model-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        .auto-book-btn {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: var(--transition);
+        }
+
+        .auto-book-btn:hover {
+            color: var(--text-primary);
         }
 
         .card-tech-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.4rem;
         }
 
         .card-tech-tag {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             background: rgba(139, 92, 246, 0.03);
             border: 1px solid rgba(139, 92, 246, 0.08);
             color: var(--text-muted);
-            padding: 0.25rem 0.65rem;
-            border-radius: 6px;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
         }
 
         /* SaaS Call-to-Action / Contact Section */
         #contact {
-            padding-bottom: 120px;
+            padding-bottom: 80px;
         }
 
         .cta-card {
             background: var(--glass-card);
             border: 1px solid rgba(139, 92, 246, 0.15);
-            border-radius: 30px;
-            padding: 5rem 4rem;
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.06);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.05);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
 
         .cta-title {
-            font-size: 3.25rem;
+            font-size: 2.5rem;
             font-weight: 900;
-            letter-spacing: -1.25px;
+            letter-spacing: -1px;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .cta-description {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            margin-bottom: 3.5rem;
-            max-width: 650px;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -938,30 +891,31 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .contact-pill {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.6rem;
             background: #ffffff;
             border: 1px solid rgba(139, 92, 246, 0.1);
-            padding: 0.85rem 1.5rem;
+            padding: 0.75rem 1.25rem;
             border-radius: 50px;
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
             box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+            font-size: 0.9rem;
         }
 
         .contact-pill:hover {
             background: rgba(255, 255, 255, 0.8);
             border-color: var(--accent-purple);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.15);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.12);
         }
 
         .contact-pill i {
@@ -971,12 +925,12 @@
         .social-container {
             display: flex;
             justify-content: center;
-            gap: 1.25rem;
+            gap: 1rem;
         }
 
         .social-circle {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             background: #ffffff;
             border: 1px solid rgba(139, 92, 246, 0.1);
             border-radius: 50%;
@@ -986,7 +940,7 @@
             color: var(--text-primary);
             text-decoration: none;
             transition: var(--transition);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.01);
         }
 
@@ -994,17 +948,17 @@
             background: var(--accent-gradient);
             border-color: transparent;
             color: white;
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.25);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 2.5rem;
+            padding: 2rem;
             border-top: 1px solid var(--glass-border);
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             background: rgba(255, 255, 255, 0.95);
         }
 
@@ -1012,14 +966,14 @@
         @media (max-width: 968px) {
             .hero-grid {
                 grid-template-columns: 1fr;
-                gap: 3.5rem;
+                gap: 2.5rem;
                 text-align: center;
             }
             .hero-left {
                 align-items: center;
             }
             .hero-name {
-                font-size: 3.25rem;
+                font-size: 3rem;
             }
             .hero-intro {
                 margin-left: auto;
@@ -1027,35 +981,29 @@
             }
             .metrics-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 2.5rem;
-            }
-            .philosophy-grid {
-                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             .skills-grid {
                 grid-template-columns: 1fr;
             }
             .cta-card {
-                padding: 4rem 2rem;
+                padding: 3rem 1.5rem;
             }
             .cta-title {
-                font-size: 2.25rem;
+                font-size: 2rem;
             }
         }
 
         @media (max-width: 768px) {
             nav {
-                padding: 1rem 5%;
+                padding: 0.8rem 5%;
             }
             nav ul {
                 display: none; /* Hamburger icon or standard mobile menu in production */
             }
             .metrics-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .metric-val {
-                font-size: 2.25rem;
+                gap: 1.5rem;
             }
         }
     </style>
@@ -1074,7 +1022,6 @@
         <a href="#hero" class="nav-logo">Sonalika<span>Samal</span></a>
         <ul>
             <li><a href="#hero" class="nav-link active">Home</a></li>
-            <li><a href="#about" class="nav-link">Philosophy</a></li>
             <li><a href="#skills" class="nav-link">Stack</a></li>
             <li><a href="#projects" class="nav-link">Work</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -1153,45 +1100,6 @@
             </div>
         </div>
 
-        <!-- Core Philosophy / Principles Section -->
-        <section id="about" class="container">
-            <div class="section-header">
-                <span class="section-tag">Philosophy</span>
-                <h2 class="section-title">How I Deliver Value</h2>
-                <p class="section-subtitle">A backend-first mindset that prioritizes visual speed, absolute security, and zero manual data entries.</p>
-            </div>
-            
-            <div class="philosophy-grid">
-                <!-- principles 1 -->
-                <div class="philosophy-card">
-                    <div class="philosophy-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Sub-Second Web Speed</h3>
-                    <p>I build Next.js interfaces decoupled from bloated databases. By pre-rendering content statically and optimizing asset pipes, I target 100/100 Lighthouse performance for maximum retention.</p>
-                </div>
-                
-                <!-- principles 2 -->
-                <div class="philosophy-card">
-                    <div class="philosophy-icon"><i class="fas fa-link"></i></div>
-                    <h3>Event-Driven Automation</h3>
-                    <p>I orchestrate robust, self-healing background automation suites on n8n. By handling webhook parameters and API authentication keys, workflows sync details with near-zero latency.</p>
-                </div>
-
-                <!-- principles 3 -->
-                <div class="philosophy-card">
-                    <div class="philosophy-icon"><i class="fas fa-brain"></i></div>
-                    <h3>Production-Grade AI</h3>
-                    <p>AI should be practical, secure, and reliable. I design context-aware assistants and Retrieval-Augmented Generation (RAG) loops that query proprietary databases without data-leakage risks.</p>
-                </div>
-
-                <!-- principles 4 -->
-                <div class="philosophy-card">
-                    <div class="philosophy-icon"><i class="fas fa-shield-halved"></i></div>
-                    <h3>Zero Vendor Lock-In</h3>
-                    <p>I build codebases to transfer. By writing modular Javascript and orchestrating on open-source docker engines, you maintain complete ownership of repositories, server VPS, and configurations.</p>
-                </div>
-            </div>
-        </section>
-
         <!-- Tech Stack Section -->
         <section id="skills" class="container">
             <div class="section-header">
@@ -1204,28 +1112,32 @@
                 <div class="skill-category">
                     <h3><i class="fas fa-code"></i> Web Development</h3>
                     <div class="skill-tags">
+                        <span class="skill-tag">WordPress</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Node.js</span>
                         <span class="skill-tag">Next.js</span>
                         <span class="skill-tag">React</span>
-                        <span class="skill-tag">TypeScript</span>
                         <span class="skill-tag">Tailwind CSS</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">HTML5 / CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">PostgreSQL</span>
                         <span class="skill-tag">Git / GitHub</span>
                     </div>
                 </div>
 
                 <div class="skill-category">
-                    <h3><i class="fas fa-cogs"></i> Automation & AI</h3>
+                    <h3><i class="fas fa-cogs"></i> AI & Automation</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">n8n Orchestration</span>
+                        <span class="skill-tag">n8n</span>
+                        <span class="skill-tag">Google AppScript</span>
+                        <span class="skill-tag">Antigravity</span>
+                        <span class="skill-tag">Perplexity</span>
+                        <span class="skill-tag">Claude</span>
+                        <span class="skill-tag">Google Workspace Studio</span>
                         <span class="skill-tag">Make.com</span>
-                        <span class="skill-tag">OpenAI & Claude APIs</span>
+                        <span class="skill-tag">OpenAI API</span>
                         <span class="skill-tag">Vector Databases</span>
-                        <span class="skill-tag">Webhook APIs</span>
-                        <span class="skill-tag">CRM Sync (Zoho, HubSpot)</span>
-                        <span class="skill-tag">WhatsApp Business API</span>
                         <span class="skill-tag">OAuth2 Security</span>
                         <span class="skill-tag">JSON Data Parsing</span>
                     </div>
@@ -1253,6 +1165,23 @@
                     <!-- Web Development panel -->
                     <div id="web-panel" class="projects-panel active">
                         
+                        <!-- Dryessence Project -->
+                        <div class="project-card">
+                            <div class="project-img-container">
+                                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dryessence Inventory Management">
+                            </div>
+                            <div class="project-details">
+                                <h3>Dryessence Inventory Management System</h3>
+                                <p>A custom full-stack inventory management system built to track warehouse stock levels, automate ordering thresholds, and generate real-time sales reports.</p>
+                                <div class="card-tech-tags">
+                                    <span class="card-tech-tag">Full-Stack</span>
+                                    <span class="card-tech-tag">Inventory Control</span>
+                                    <span class="card-tech-tag">Database</span>
+                                </div>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+
                         <!-- Web Project 1 -->
                         <div class="project-card">
                             <div class="project-img-container">
@@ -1357,57 +1286,289 @@
                     <!-- AI & Automation panel -->
                     <div id="auto-panel" class="projects-panel">
                         
-                        <!-- Automation 1 -->
+                        <!-- Setu AI Workforce Management System -->
                         <div class="automation-card">
                             <div class="auto-card-header">
-                                <div class="auto-icon-box"><i class="fas fa-network-wired"></i></div>
-                                <span class="auto-metric-tag">99.9% Uptime</span>
+                                <span class="auto-category-tag">Operations & Systems</span>
+                                <span class="auto-metric-tag">Enterprise SLA</span>
                             </div>
                             <div class="auto-card-body">
-                                <h3>Zoho CRM API Contact Sync</h3>
-                                <p>An event-driven n8n workflow that captures lead ingestion webhooks, qualification variables, JS filters, and upserts contacts in Zoho CRM v3.</p>
+                                <h3>Setu AI Workforce Management System</h3>
+                                <p>An advanced operations engine designed to coordinate staff shifts, attendance tracking metrics, automatic payroll, and secure system permissions workflows.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> Shift Allocation Optimizer</li>
+                                    <li><i class="fas fa-check"></i> Attendance Tracking Logs</li>
+                                    <li><i class="fas fa-check"></i> Automated Payroll Summaries</li>
+                                    <li><i class="fas fa-check"></i> Custom Role System Security</li>
+                                </ul>
                             </div>
-                            <div class="card-tech-tags">
-                                <span class="card-tech-tag">n8n Orchestration</span>
-                                <span class="card-tech-tag">Zoho API</span>
-                                <span class="card-tech-tag">JavaScript</span>
-                                <span class="card-tech-tag">Webhooks</span>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Dedicated VPS</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
 
-                        <!-- Automation 2 -->
+                        <!-- Suite 1: Email Marketing Suite -->
                         <div class="automation-card">
                             <div class="auto-card-header">
-                                <div class="auto-icon-box"><i class="fas fa-brain"></i></div>
-                                <span class="auto-metric-tag">Saved 15hrs/wk</span>
+                                <span class="auto-category-tag">Outreach & Marketing</span>
+                                <span class="auto-metric-tag">99.2% Delivery</span>
                             </div>
                             <div class="auto-card-body">
-                                <h3>Context-Aware AI Document RAG</h3>
-                                <p>A RAG-based search system that indexes policy PDFs, processes embeddings, saves them in pgvector, and generates context-locked responses via Claude API.</p>
+                                <h3>Email Marketing Automation Suite</h3>
+                                <p>Autonomous prospecting, email qualification, outbound cold messaging campaigns, automated follow-up sequences, and inbox warmups.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> AI Lead Prospecting & Verification</li>
+                                    <li><i class="fas fa-check"></i> Email Outreach Autopilot</li>
+                                    <li><i class="fas fa-check"></i> Smart Follow-up Sequencer</li>
+                                    <li><i class="fas fa-check"></i> Automatic Bounce Management</li>
+                                </ul>
                             </div>
-                            <div class="card-tech-tags">
-                                <span class="card-tech-tag">Claude & OpenAI</span>
-                                <span class="card-tech-tag">pgvector</span>
-                                <span class="card-tech-tag">Supabase</span>
-                                <span class="card-tech-tag">Python</span>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Managed Cloud</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
 
-                        <!-- Automation 3 -->
+                        <!-- Suite 2: Social Media Suite -->
                         <div class="automation-card">
                             <div class="auto-card-header">
-                                <div class="auto-icon-box"><i class="fas fa-robot"></i></div>
-                                <span class="auto-metric-tag">28% Response</span>
+                                <span class="auto-category-tag">Outreach & Marketing</span>
+                                <span class="auto-metric-tag">Auto-Publish</span>
                             </div>
                             <div class="auto-card-body">
-                                <h3>Meta WhatsApp Outreach Autopilot</h3>
-                                <p>Meta Business API webhook responder that triggers templates to leads, qualification parameters, and hooks scheduling calendar flows.</p>
+                                <h3>Social Media Automation Suite</h3>
+                                <p>Auto-generates layout designs, schedules posts across multiple networks, maintains daily brand thoughts, and monitors analytics data.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> AI Content & Copywriting</li>
+                                    <li><i class="fas fa-check"></i> AI Graphic Poster Creator</li>
+                                    <li><i class="fas fa-check"></i> Auto Multi-Channel Scheduler</li>
+                                    <li><i class="fas fa-check"></i> Dynamic Carousel Posting</li>
+                                </ul>
                             </div>
-                            <div class="card-tech-tags">
-                                <span class="card-tech-tag">WhatsApp API</span>
-                                <span class="card-tech-tag">Express.js</span>
-                                <span class="card-tech-tag">Node.js</span>
-                                <span class="card-tech-tag">API Integrations</span>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Managed Cloud</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Suite 3: Meta Ads Suite -->
+                        <div class="automation-card">
+                            <div class="auto-card-header">
+                                <span class="auto-category-tag">Outreach & Marketing</span>
+                                <span class="auto-metric-tag">Instant Sync</span>
+                            </div>
+                            <div class="auto-card-body">
+                                <h3>Meta Ads Automation Suite</h3>
+                                <p>Automates active campaign setups, captures leads from form submissions, qualifies prospects instantly, and runs reporting dashboards.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> Ad Campaign Setup Builder</li>
+                                    <li><i class="fas fa-check"></i> Meta Lead Collection</li>
+                                    <li><i class="fas fa-check"></i> Instant Lead Qualification</li>
+                                    <li><i class="fas fa-check"></i> Instant WhatsApp CRM Alert</li>
+                                </ul>
+                            </div>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Managed Cloud</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Suite 4: AI Lead Nurturing Suite -->
+                        <div class="automation-card">
+                            <div class="auto-card-header">
+                                <span class="auto-category-tag">Outreach & Marketing</span>
+                                <span class="auto-metric-tag">High Qualification</span>
+                            </div>
+                            <div class="auto-card-body">
+                                <h3>AI Lead Nurturing Suite</h3>
+                                <p>Conversational lead qualifiers, drip campaigns, WhatsApp sequence builders, special offer rollouts, and CRM data sync.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> Custom WhatsApp Flows</li>
+                                    <li><i class="fas fa-check"></i> Automated Email Drips</li>
+                                    <li><i class="fas fa-check"></i> Conversational AI Chatbot</li>
+                                    <li><i class="fas fa-check"></i> Lead Qualification Scoring</li>
+                                </ul>
+                            </div>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Managed Cloud</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Suite 5: Customer Success Automation -->
+                        <div class="automation-card">
+                            <div class="auto-card-header">
+                                <span class="auto-category-tag">Operations & Support</span>
+                                <span class="auto-metric-tag">5x Review Rate</span>
+                            </div>
+                            <div class="auto-card-body">
+                                <h3>Customer Success Automation Suite</h3>
+                                <p>Triggers user onboarding, surveys satisfaction metrics, collects organic Google reviews, manages referrals, and runs win-back loops.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> Welcome & Onboarding</li>
+                                    <li><i class="fas fa-check"></i> CSAT Feedback Collection</li>
+                                    <li><i class="fas fa-check"></i> Google Reviews Auto-Booster</li>
+                                    <li><i class="fas fa-check"></i> Loyalty & Referral Trackers</li>
+                                </ul>
+                            </div>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Managed Cloud</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Suite 6: Office Productivity Suite -->
+                        <div class="automation-card">
+                            <div class="auto-card-header">
+                                <span class="auto-category-tag">Operations & Support</span>
+                                <span class="auto-metric-tag">AppScript Powered</span>
+                            </div>
+                            <div class="auto-card-body">
+                                <h3>Office Productivity Suite</h3>
+                                <p>Sends task lists, tracks employee schedules, notifies ticket SLA delays, monitors leaves, and handles nightly backups.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> Daily Team Shift Reminders</li>
+                                    <li><i class="fas fa-check"></i> SLA Ticket Delay Alerts</li>
+                                    <li><i class="fas fa-check"></i> Overdue Task Checklists</li>
+                                    <li><i class="fas fa-check"></i> AppScript Ticket Trackers</li>
+                                </ul>
+                            </div>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Managed Cloud</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Suite 7: CRM Automation Suite -->
+                        <div class="automation-card">
+                            <div class="auto-card-header">
+                                <span class="auto-category-tag">CRM & Database</span>
+                                <span class="auto-metric-tag">Dual-Sync</span>
+                            </div>
+                            <div class="auto-card-body">
+                                <h3>CRM Automation Suite</h3>
+                                <p>Syncs client details across tools, schedules calendar meetings, builds call analytics graphs, and saves data logs.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> Lead Status Age Warnings</li>
+                                    <li><i class="fas fa-check"></i> Reports Auto-Compiler</li>
+                                    <li><i class="fas fa-check"></i> Google Calendar Integration</li>
+                                    <li><i class="fas fa-check"></i> Enterprise CRM Sync Drivers</li>
+                                </ul>
+                            </div>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Managed Cloud</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Suite 8: AI Business Assistant Suite -->
+                        <div class="automation-card">
+                            <div class="auto-card-header">
+                                <span class="auto-category-tag">AI Agents & LLMs</span>
+                                <span class="auto-metric-tag">Multi-Agent</span>
+                            </div>
+                            <div class="auto-card-body">
+                                <h3>AI Business Assistant Suite</h3>
+                                <p>Custom AI agents acting as customer executives, email writers, sales consultants, and web scraping assistants.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> AI Sales Representative Agent</li>
+                                    <li><i class="fas fa-check"></i> AI Smart Inbox Manager</li>
+                                    <li><i class="fas fa-check"></i> AI Customer Success Copilot</li>
+                                    <li><i class="fas fa-check"></i> AI Research & Scraping Agent</li>
+                                </ul>
+                            </div>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Dedicated VPS</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Suite 9: Travel Business Automation Suite -->
+                        <div class="automation-card">
+                            <div class="auto-card-header">
+                                <span class="auto-category-tag">Operations & Support</span>
+                                <span class="auto-metric-tag">Live Intelligence</span>
+                            </div>
+                            <div class="auto-card-body">
+                                <h3>Travel Business Automation Suite</h3>
+                                <p>Performs travel rate comparisons, booking validations, dynamic quotes layouts, and automated email itineraries.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> Travel Rate Intelligence Lookups</li>
+                                    <li><i class="fas fa-check"></i> Outbound Lead Journey Drips</li>
+                                    <li><i class="fas fa-check"></i> Dynamic PDF Quote Builder</li>
+                                    <li><i class="fas fa-check"></i> AI Booking Chatbots</li>
+                                </ul>
+                            </div>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Managed Cloud</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Suite 10: Website Business Automation Suite -->
+                        <div class="automation-card">
+                            <div class="auto-card-header">
+                                <span class="auto-category-tag">CRM & Database</span>
+                                <span class="auto-metric-tag">Instant Forward</span>
+                            </div>
+                            <div class="auto-card-body">
+                                <h3>Website Business Automation Suite</h3>
+                                <p>Connects standard contact forms to WhatsApp alerts, routes client details to databases, and manages booking calendars.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> Contact Form CRM Routing</li>
+                                    <li><i class="fas fa-check"></i> Form-to-WhatsApp Instants</li>
+                                    <li><i class="fas fa-check"></i> Consultation Calendar Schedulers</li>
+                                    <li><i class="fas fa-check"></i> Traffic Analytics Sync</li>
+                                </ul>
+                            </div>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Managed Cloud</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Suite 11: Voice Agent Customer Support Suite -->
+                        <div class="automation-card">
+                            <div class="auto-card-header">
+                                <span class="auto-category-tag">AI Agents & LLMs</span>
+                                <span class="auto-metric-tag">Real-Time Voice</span>
+                            </div>
+                            <div class="auto-card-body">
+                                <h3>Voice Agent Customer Support Suite</h3>
+                                <p>Deploys intelligent, human-like voice agents that handle support calls, qualify inquiries, and trigger background CRM workflows.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> Autonomous Inbound Call Handler</li>
+                                    <li><i class="fas fa-check"></i> Natural Language Voice Synthesis</li>
+                                    <li><i class="fas fa-check"></i> Real-time Conversation Transcriber</li>
+                                    <li><i class="fas fa-check"></i> Post-Call CRM Summary Log</li>
+                                </ul>
+                            </div>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Dedicated VPS</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Suite 12: Quotation & Invoice Automation Suite -->
+                        <div class="automation-card">
+                            <div class="auto-card-header">
+                                <span class="auto-category-tag">Finance & Invoicing</span>
+                                <span class="auto-metric-tag">100% Automated</span>
+                            </div>
+                            <div class="auto-card-body">
+                                <h3>Quotation & Invoice Automation Suite</h3>
+                                <p>Automates calculations, builds client quotes, generates professional invoices, and syncs payment tracking status.</p>
+                                <ul class="auto-features">
+                                    <li><i class="fas fa-check"></i> Dynamic PDF Quotation Builder</li>
+                                    <li><i class="fas fa-check"></i> Automated Recurring Invoices</li>
+                                    <li><i class="fas fa-check"></i> Smart Payment Reminder Autopilot</li>
+                                    <li><i class="fas fa-check"></i> Accounting & CRM Sync</li>
+                                </ul>
+                            </div>
+                            <div class="auto-footer">
+                                <span class="auto-model-badge">Managed Cloud</span>
+                                <a href="#contact" class="auto-book-btn">Book Demo <i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
 
