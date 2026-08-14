@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonalika Samal | Graphic & Web Designer</title>
+    <title>Sonalika Samal | AI Automation & Web Developer</title>
     <!-- Modern Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +18,8 @@
             --bg-secondary: #f8fafc;
             --text-primary: #0f172a;
             --text-secondary: #475569;
-            --accent-gradient: linear-gradient(135deg, #2C2B60, #2C2B60);
-            --accent-hover: linear-gradient(135deg, #109862, #109862);
+            --accent-gradient: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            --accent-hover: linear-gradient(135deg, #7c3aed, #2563eb);
             --card-bg: rgba(255, 255, 255, 0.85);
             --glass-border: rgba(0, 0, 0, 0.08);
         }
@@ -294,71 +294,99 @@
             color: white;
         }
 
-        /* Graphic Design Portfolio */
-        .gallery-grid {
+        /* AI & Automation Portfolio */
+        .automation-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
-        .gallery-item {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.3));
+        .automation-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            padding: 2rem;
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            gap: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
         }
 
-        .gallery-item:hover .gallery-img {
-            transform: scale(1.1);
+        .automation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
         }
 
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
+        .automation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        .gallery-category {
-            font-size: 0.85rem;
+        .automation-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .automation-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .automation-metric {
+            font-size: 0.75rem;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #3b82f6;
-            margin-bottom: 0.5rem;
-            transform: translateY(10px);
-            transition: transform 0.4s ease;
-            font-weight: 600;
+            letter-spacing: 1px;
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.35rem 0.75rem;
+            border-radius: 50px;
         }
 
-        .gallery-title {
-            font-size: 1.3rem;
+        .automation-info h3 {
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--text-primary);
-            transform: translateY(10px);
-            transition: transform 0.4s ease 0.1s;
+            margin-bottom: 0.75rem;
         }
-        
-        .gallery-item:hover .gallery-category,
-        .gallery-item:hover .gallery-title {
-            transform: translateY(0);
+
+        .automation-info p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .automation-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .automation-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.06);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
         }
 
         /* Web Design Portfolio */
@@ -568,16 +596,14 @@
 </head>
 <body>
 
-
-
     <!-- Navigation -->
     <nav id="navbar">
         <ul>
             <li><a href="#hero">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#graphic-work">Graphics</a></li>
-            <li><a href="#web-work">Web</a></li>
+            <li><a href="#web-projects">Web Dev</a></li>
+            <li><a href="#automation-projects">AI & Automation</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -589,13 +615,13 @@
             <img src="https://res.cloudinary.com/drxe29smn/image/upload/f_auto,q_auto/Me_afvs4m" alt="Sonalika Samal" class="profile-img">
             
             <h1 class="hero-name">Sonalika Samal</h1>
-            <h2 class="hero-title">Creative Graphic Designer <span style="font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);"> & Web Designer</span></h2>
+            <h2 class="hero-title">AI Automation Engineer <span style="font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);"> & Full-Stack Web Developer</span></h2>
             
             <p class="hero-intro">
-                With over one year of experience in this designing field, I have experienced that design is more than aesthetics; it's how a problem is solved. I bring a unique thinking approach that blends creativity with a problem-solving mindset. By leveraging AI tools and automation, I enhance my workflow to deliver exceptional, high-impact designs efficiently.
+                I build high-performance custom web applications and event-driven AI workflow automations. By leveraging state-of-the-art LLMs, custom API integrations, and modern frontend frameworks, I eliminate manual operational overhead and engineer digital systems that scale.
             </p>
             
-            <a href="#graphic-work" class="btn">View Design Portfolio</a>
+            <a href="#web-projects" class="btn">View My Work</a>
         </section>
 
         <!-- About Section -->
@@ -603,185 +629,58 @@
             <h2 class="section-title">My Philosophy</h2>
             <div class="about-content">
                 <p>
-                    I think differently about design. It’s not just about making things look good; it’s about crafting experiences that resonate. My approach sits at the intersection of creativity, logical structure, and user psychology.
+                    I believe in building software that doesn't just look stunning, but drives real business efficiency. Every line of code, database query, and automated trigger should eliminate manual friction.
                 </p>
                 <p>
-                    I believe in blending beautiful aesthetics with flawless functionality. Whether it's a brand identity or a web interface, every pixel serves a purpose.
+                    My approach sits at the intersection of robust backend engineering, API orchestration, and intuitive user experiences. Decoupling complex services from public-facing frontends ensures sub-second page loads, near 100/100 Lighthouse performance, and high conversion.
                 </p>
                 <p>
-                    In today's fast-paced digital landscape, I integrate AI and automation tools into my process. This smart approach allows me to scale ideas faster, iterate smarter, and focus on the strategic creative thinking that truly sets a project apart.
+                    I view artificial intelligence not as a standalone gimmick, but as the core digital backbone of modern companies. By building context-aware agents, multi-system CRM pipelines, and secure data syncs, I help teams automate repetitive tasks and focus on growth.
                 </p>
             </div>
         </section>
 
         <!-- Skills Section -->
         <section id="skills" class="container">
-            <h2 class="section-title">Tools & Expertise</h2>
+            <h2 class="section-title">Tech Stack & Tools</h2>
             <div class="skills-grid">
                 
                 <div class="skill-category">
-                    <h3>Graphic Designing Tools</h3>
+                    <h3>Web Development Stack</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Canva</span>
-                        <span class="skill-tag">CorelDRAW</span>
-                        <span class="skill-tag">Adobe Illustrator</span>
-                        <span class="skill-tag">PowerPoint</span>
-                        <span class="skill-tag">Custom GPTs</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">HTML5 / CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Git / GitHub</span>
                     </div>
                 </div>
 
                 <div class="skill-category">
-                    <h3>Web Designing Tools</h3>
+                    <h3>AI & Automation Systems</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">WordPress</span>
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Claude AI</span>
-                        <span class="skill-tag">Antigravity</span>
+                        <span class="skill-tag">n8n Orchestration</span>
+                        <span class="skill-tag">Make.com</span>
+                        <span class="skill-tag">OpenAI & Claude APIs</span>
+                        <span class="skill-tag">Vector Databases</span>
+                        <span class="skill-tag">API Webhooks</span>
+                        <span class="skill-tag">CRM Integrations</span>
+                        <span class="skill-tag">WhatsApp Business API</span>
+                        <span class="skill-tag">JSON Parsing</span>
+                        <span class="skill-tag">OAuth2 Security</span>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- Graphic Design Portfolio -->
-        <section id="graphic-work" class="container">
-            <h2 class="section-title">Graphic Design Work</h2>
-            <div class="gallery-grid">
-                
-                <!-- Project 1 -->
-                <a href="https://online.fliphtml5.com/xclgw/ufhj/" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 1" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 1</h3>
-                    </div>
-                </a>
-
-                <!-- Project 2 -->
-                <a href="https://online.fliphtml5.com/xclgw/zcjh/" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 2" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 2</h3>
-                    </div>
-                </a>
-
-                <!-- Project 3 -->
-                <a href="https://online.fliphtml5.com/xclgw/ztqu/" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 3" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 3</h3>
-                    </div>
-                </a>
-
-                <!-- Project 4 -->
-                <a href="https://online.fliphtml5.com/xclgw/fxjv/" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 4" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 4</h3>
-                    </div>
-                </a>
-
-                <!-- Project 5 -->
-                <a href="https://heyzine.com/flip-book/36d85e9a52.html" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 5" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 5</h3>
-                    </div>
-                </a>
-
-                <!-- Project 6 -->
-                <a href="https://heyzine.com/flip-book/9505958b70.html" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 6" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 6</h3>
-                    </div>
-                </a>
-
-                <!-- Project 7 -->
-                <a href="https://online.fliphtml5.com/xclgw/oakj/" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 7" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 7</h3>
-                    </div>
-                </a>
-
-                <!-- Project 8 -->
-                <a href="https://online.fliphtml5.com/xclgw/autb/" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 8" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 8</h3>
-                    </div>
-                </a>
-
-                <!-- Project 9 -->
-                <a href="https://online.fliphtml5.com/xclgw/qeth/" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 9" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 9</h3>
-                    </div>
-                </a>
-
-                <!-- Project 10 -->
-                <a href="https://online.fliphtml5.com/tmjot/qwhq/" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 10" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 10</h3>
-                    </div>
-                </a>
-
-                <!-- Project 11 -->
-                <a href="https://heyzine.com/flip-book/de1aaba691.html" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 11" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 11</h3>
-                    </div>
-                </a>
-
-                <!-- Project 12 -->
-                <a href="https://drive.google.com/file/d/17hv0wJO449MtMqf6usRC443-xq6f4oQ3/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 12" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 12</h3>
-                    </div>
-                </a>
-
-                <!-- Project 13 -->
-                <a href="https://drive.google.com/file/d/1aVv_l3HwMeyI1vcecJoZa4vUKj5pm6on/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 13" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 13</h3>
-                    </div>
-                </a>
-
-                <!-- Project 14 -->
-                <a href="https://drive.google.com/file/d/1atBBdX3xzizxQM6wAkfG_kPQ2MNGpoKz/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="gallery-item" style="display: block; text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Project 14" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <span class="gallery-category">Graphic Design</span>
-                        <h3 class="gallery-title">Design Project 14</h3>
-                    </div>
-                </a>
-
-            </div>
-        </section>
-
-        <!-- Web Design Portfolio -->
-        <section id="web-work" class="container">
-            <h2 class="section-title">Web Design Projects</h2>
+        <!-- Web Development Portfolio -->
+        <section id="web-projects" class="container">
+            <h2 class="section-title">Web Development Projects</h2>
             <div class="projects-grid">
                 
                 <!-- Project 1 -->
@@ -859,12 +758,73 @@
             </div>
         </section>
 
+        <!-- AI & Automation Portfolio -->
+        <section id="automation-projects" class="container">
+            <h2 class="section-title">AI & Automation Projects</h2>
+            <div class="automation-grid">
+                
+                <!-- Automation 1 -->
+                <div class="automation-card">
+                    <div class="automation-header">
+                        <div class="automation-icon"><i class="fas fa-network-wired"></i></div>
+                        <span class="automation-metric">99.9% Uptime</span>
+                    </div>
+                    <div class="automation-info">
+                        <h3>Zoho CRM API Contact Synchronizer</h3>
+                        <p>An event-driven n8n workflow that captures lead ingestion webhooks, qualificates company size, cleans input fields via JavaScript, and safely deduplicates/upserts contacts in Zoho CRM v3.</p>
+                    </div>
+                    <div class="automation-tags">
+                        <span class="automation-tag">n8n</span>
+                        <span class="automation-tag">OAuth2</span>
+                        <span class="automation-tag">Zoho CRM API</span>
+                        <span class="automation-tag">Node.js</span>
+                    </div>
+                </div>
+
+                <!-- Automation 2 -->
+                <div class="automation-card">
+                    <div class="automation-header">
+                        <div class="automation-icon"><i class="fas fa-brain"></i></div>
+                        <span class="automation-metric">Saved 15hrs/wk</span>
+                    </div>
+                    <div class="automation-info">
+                        <h3>Context-Aware AI Document Assistant</h3>
+                        <p>A Retrieval-Augmented Generation (RAG) agent that splits corporate policy PDFs into semantic chunks, creates vector embeddings stored in a pgvector database, and resolves customer support tickets.</p>
+                    </div>
+                    <div class="automation-tags">
+                        <span class="automation-tag">Claude / OpenAI</span>
+                        <span class="automation-tag">Supabase pgvector</span>
+                        <span class="automation-tag">Python</span>
+                    </div>
+                </div>
+
+                <!-- Automation 3 -->
+                <div class="automation-card">
+                    <div class="automation-header">
+                        <div class="automation-icon"><i class="fas fa-robot"></i></div>
+                        <span class="automation-metric">28% Response</span>
+                    </div>
+                    <div class="automation-info">
+                        <h3>WhatsApp Marketing Outreach Autopilot</h3>
+                        <p>An automated webhook responder utilizing the official Meta WhatsApp Business API. It sends pre-approved utility/marketing templates to new web leads, qualifies intent, and books consultations.</p>
+                    </div>
+                    <div class="automation-tags">
+                        <span class="automation-tag">WhatsApp API</span>
+                        <span class="automation-tag">Webhooks</span>
+                        <span class="automation-tag">Express.js</span>
+                        <span class="automation-tag">Cron Jobs</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="container">
-            <h2 class="section-title">Let’s Work Together</h2>
+            <h2 class="section-title">Let’s Connect</h2>
             <div class="contact-card">
                 <p class="contact-tagline">
-                    Have a project in mind or need high-impact designs with smart automation? Let’s connect.
+                    Looking to scale operations, build high-speed Next.js web applications, or integrate secure AI automation flows? Let's discuss.
                 </p>
                 
                 <div class="contact-links">
@@ -955,9 +915,6 @@
                 navbar.style.boxShadow = 'none';
             }
         });
-
-
-
     </script>
 </body>
 </html>
